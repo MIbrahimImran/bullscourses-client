@@ -1,0 +1,4 @@
+<app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
+<ul>
+    <li *ngFor="let course of coursesMatched">{{ course.TITLE }} {{course.TIME}}</li>
+</ul>

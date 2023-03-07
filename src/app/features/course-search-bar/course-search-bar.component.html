@@ -1,0 +1,9 @@
+<form [formGroup]="searchForm">
+  <mat-form-field >
+    <mat-label>Enter Course Name</mat-label>
+    <input matInput type="text"  placeholder="Ex. Data Structures" formControlName="searchTerm" (keyup)="onSearchCourse()" />
+  </mat-form-field>
+</form>
+
+
+
