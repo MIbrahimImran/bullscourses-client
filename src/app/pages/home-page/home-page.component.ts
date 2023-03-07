@@ -25,8 +25,7 @@ export class HomePageComponent {
       for (const course of data) {
         if (
           this.isValidCourseTitle(userInput, course) ||
-          this.isValidCourseCRN(userInput, course) ||
-          this.isValidCourseCRS(userInput, course)
+          this.isValidCourseCRN(userInput, course)
         ) {
           matched.push(course);
         }
@@ -41,9 +40,5 @@ export class HomePageComponent {
 
   isValidCourseCRN(userInput: string, course: Course): boolean {
     return course.CRN?.toLowerCase().includes(userInput.toLowerCase());
-  }
-
-  isValidCourseCRS(userInput: string, course: Course): boolean {
-    return course.SUBJ_CRS?.toLowerCase().includes(userInput.toLowerCase());
   }
 }
