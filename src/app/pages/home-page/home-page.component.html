@@ -1,4 +1,8 @@
 <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
-<ul>
-    <li *ngFor="let course of coursesMatched">{{ course.TITLE }} {{course.TIME}}</li>
-</ul>
+
+<ag-grid-angular
+    style="width: 100%; height: 100%;"
+    class="ag-theme-alpine-dark"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs">
+</ag-grid-angular>

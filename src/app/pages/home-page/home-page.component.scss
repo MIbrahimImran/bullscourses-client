@@ -1,5 +1,11 @@
 app-course-search-bar {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     padding-top: 20px;
+    padding-left: 12px;
+}
+
+ag-grid-angular {
+    padding-left: 10px;
+    padding-right: 10px;
 }
