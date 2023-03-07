@@ -1,9 +1,8 @@
-<form class="course-search-bar" [formGroup]="searchForm">
-  <mat-form-field class="course-search-bar__input">
-    <mat-label>Enter Course</mat-label>
-    <input matInput placeholder="Ex. Data Structures" formControlName="searchTerm">
+<form [formGroup]="searchForm">
+  <mat-form-field >
+    <mat-label>Enter Course Name</mat-label>
+    <input matInput type="text"  placeholder="Ex. Data Structures" formControlName="searchTerm" (keyup)="onSearchCourse()" />
   </mat-form-field>
-  <p>Check Console for courses found!</p>
 </form>
 
 
