@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 import { ColDef } from 'ag-grid-community';
+import { SubscribeButtonComponent } from 'src/app/features/ag-grid/subscribe-button/subscribe-button.component';
 import { Course } from 'src/app/interfaces/course.interface';
 import { HomePageService } from './home-page.service';
 
@@ -18,7 +19,7 @@ export class HomePageComponent implements OnInit {
     public auth: AuthService
   ) {
     auth.user$.subscribe((profile) => {
-      console.log(profile);
+      console.log('Profile: ', profile);
     });
   }
 
@@ -32,6 +33,7 @@ export class HomePageComponent implements OnInit {
     { field: 'Status' },
     { field: 'Instructor' },
     { field: 'Location' },
+    { field: 'Notification', cellRenderer: SubscribeButtonComponent },
   ];
 
   gridOptions = {
