@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import { ColDef } from 'ag-grid-community';
 import { Course } from 'src/app/interfaces/course.interface';
 import { HomePageService } from './home-page.service';
@@ -12,7 +13,14 @@ export class HomePageComponent implements OnInit {
   defaultTerm = '202301';
   agGridComponents: any;
 
-  constructor(private homePageService: HomePageService) {}
+  constructor(
+    private homePageService: HomePageService,
+    public auth: AuthService
+  ) {
+    auth.user$.subscribe((profile) => {
+      console.log(profile);
+    });
+  }
 
   columnDefs: ColDef[] = [
     { field: 'CRN' },
