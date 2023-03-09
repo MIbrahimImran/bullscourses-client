@@ -1,4 +1,16 @@
-<app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
+<mat-toolbar>
+    <span>BullsCourses</span>
+    <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
+    <div>
+        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+            <app-logout-button></app-logout-button>
+          </ng-container>
+        
+          <ng-template #loggedOut>
+            <app-login-button></app-login-button>
+          </ng-template>
+    </div>
+</mat-toolbar>
 
 <ag-grid-angular
     style="width: 100%; height: 100%;"

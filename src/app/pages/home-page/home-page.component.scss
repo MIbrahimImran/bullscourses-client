@@ -1,8 +1,11 @@
-app-course-search-bar {
+mat-toolbar {
     display: flex;
-    justify-content: left;
-    padding-top: 20px;
-    padding-left: 12px;
+    justify-content: space-between;
+
+    app-course-search-bar {
+        height: 100%;
+        padding-top: 8px;
+    }
 }
 
 ag-grid-angular {
