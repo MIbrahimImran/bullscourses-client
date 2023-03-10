@@ -1,54 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
+import { Component } from '@angular/core';
+import { AuthService, User } from '@auth0/auth0-angular';
 import { ColDef } from 'ag-grid-community';
-import { SubscribeButtonComponent } from 'src/app/features/ag-grid/subscribe-button/subscribe-button.component';
 import { Course } from 'src/app/interfaces/course.interface';
 import { HomePageService } from './home-page.service';
+import { map } from 'rxjs';
+import { SubscriptionButtonComponent } from 'src/app/features/ag-grid/subscription-button/subscription-button.component';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent {
   defaultTerm = '202301';
-  agGridComponents: any;
+
+  rowData: Course[] = [];
+
+  columnDefs: ColDef[] = [
+    { field: 'CRN' },
+    { field: 'SUBJ_CRS' },
+    { field: 'TITLE' },
+    { field: 'TIME' },
+    // { field: 'CR' },
+    { field: 'SEATSREMAIN' },
+    // { field: 'STATUS' },
+    // { field: 'INSTRUCTOR' },
+    // { field: 'BLDG' },
+    { field: 'Notification', cellRenderer: SubscriptionButtonComponent },
+  ];
 
   constructor(
     private homePageService: HomePageService,
     public auth: AuthService
-  ) {
-    auth.user$.subscribe((profile) => {
-      console.log('Profile: ', profile);
-    });
-  }
-
-  columnDefs: ColDef[] = [
-    { field: 'CRN' },
-    { field: 'CRS' },
-    { field: 'Title' },
-    { field: 'Time' },
-    { field: 'Credits' },
-    { field: 'Seats' },
-    { field: 'Status' },
-    { field: 'Instructor' },
-    { field: 'Location' },
-    { field: 'Notification', cellRenderer: SubscribeButtonComponent },
-  ];
-
-  gridOptions = {
-    defaultColDef: {
-      resizable: true,
-      initialWidth: 200,
-      wrapHeaderText: true,
-      autoHeaderHeight: true,
-    },
-    columnDefs: this.columnDefs,
-  };
-
-  rowData: Course[] = [];
-
-  ngOnInit(): void {}
+  ) {}
 
   onSearchCourse(userInput: string): void {
     if (userInput.trim() === '') {
@@ -63,8 +47,7 @@ export class HomePageComponent implements OnInit {
           this.isValidCourseTitle(userInput, course) ||
           this.isValidCourseCRN(userInput, course)
         ) {
-          const formattedCourse = this.formatCourseData(course);
-          coursesMatched.push(formattedCourse);
+          coursesMatched.push(course);
         }
       }
       this.rowData = coursesMatched;
@@ -77,19 +60,5 @@ export class HomePageComponent implements OnInit {
 
   isValidCourseCRN(userInput: string, course: Course): boolean {
     return course.CRN?.toLowerCase().includes(userInput.toLowerCase());
-  }
-
-  formatCourseData(course: Course): any {
-    return {
-      CRN: course.CRN,
-      CRS: course.SUBJ_CRS,
-      Title: course.TITLE,
-      Time: course.TIME,
-      Instructor: course.INSTRUCTOR,
-      Credits: course.CR,
-      Location: course.BLDG + ' ' + course.ROOM,
-      Seats: course.SEATSREMAIN + '/' + course.CAP,
-      Status: course.STATUS,
-    };
   }
 }

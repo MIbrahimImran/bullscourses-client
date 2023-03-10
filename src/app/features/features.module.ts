@@ -7,14 +7,14 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginButtonComponent } from './login-button/login-button.component';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
-import { SubscribeButtonComponent } from './ag-grid/subscribe-button/subscribe-button.component';
+import { SubscriptionButtonComponent } from './ag-grid/subscription-button/subscription-button.component';
 
 @NgModule({
   declarations: [
     CourseSearchBarComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
-    SubscribeButtonComponent,
+    SubscriptionButtonComponent,
   ],
   imports: [
     CommonModule,

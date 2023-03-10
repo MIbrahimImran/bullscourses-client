@@ -1,0 +1,17 @@
+<button mat-fab 
+        extended 
+        color="primary" 
+        [disabled]="!isUserLoggedIn()" 
+        *ngIf="!isSubscribed(params.data)" 
+        (click)="onSubscribe(params.data)">
+        Subscribe
+</button>
+
+<button mat-fab 
+        extended
+        color="warn" 
+        [disabled]="!isUserLoggedIn()" 
+        *ngIf="isSubscribed(params.data)" 
+        (click)="onUnsubscribe(params.data)">
+        Unsubscribe
+</button>
