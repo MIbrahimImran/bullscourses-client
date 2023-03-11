@@ -30,16 +30,16 @@ export class SubscriptionButtonComponent {
   onSubscribe(course: Course): void {
     this.agGridService
       .subscribeCourse(this.agGridService.user as any, course)
-      .subscribe((data) => {
-        this.agGridService.updateSubscribedCRNs();
+      .subscribe((course) => {
+        this.agGridService.updateSubscribedCRNs(course);
       });
   }
 
   onUnsubscribe(course: Course): void {
     this.agGridService
       .unsubscribeCourse(this.agGridService.user as any, course)
-      .subscribe((data) => {
-        this.agGridService.updateSubscribedCRNs();
+      .subscribe((course) => {
+        this.agGridService.updateSubscribedCRNs(course);
       });
   }
 
