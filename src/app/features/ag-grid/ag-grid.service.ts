@@ -24,7 +24,7 @@ export class AgGridService {
 
   subscribeCourse(user: User, course: Course): Observable<Course> {
     return this.http.post<Course>(
-      `http://localhost:3000/subscription/subscribe`,
+      `http://104.248.56.174:3000/subscription/subscribe`,
       {
         user,
         course,
@@ -34,7 +34,7 @@ export class AgGridService {
 
   unsubscribeCourse(user: User, course: Course): Observable<Course> {
     return this.http.post<Course>(
-      `http://localhost:3000/subscription/unsubscribe`,
+      `http://104.248.56.174:3000/subscription/unsubscribe`,
       {
         user,
         course,
@@ -44,7 +44,7 @@ export class AgGridService {
 
   getSubscribedCRNs(user: User): Observable<string[]> {
     return this.http.get<string[]>(
-      `http://localhost:3000/subscription/getSubscribedCRNs/${user.email}`
+      `http://104.248.56.174:3000/subscription/getSubscribedCRNs/${user.email}`
     );
   }
 

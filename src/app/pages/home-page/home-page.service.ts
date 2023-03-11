@@ -12,7 +12,7 @@ export class HomePageService {
 
   getAllCourses(searchTerm: string): Observable<Course[]> {
     return this.http.get<Course[]>(
-      `http://localhost:3000/courses/${searchTerm}`
+      `http://104.248.56.174:3000/courses/${searchTerm}`
     );
   }
 }
