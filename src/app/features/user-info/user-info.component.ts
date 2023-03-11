@@ -14,7 +14,6 @@ export class UserInfoComponent {
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
       this.givenName = user?.given_name;
-      console.log('user', user);
     });
   }
 }

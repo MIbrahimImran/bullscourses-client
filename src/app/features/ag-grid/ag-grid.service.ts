@@ -15,7 +15,9 @@ export class AgGridService {
     this.auth.user$.subscribe((user) => {
       this.user = user;
       if (this.user) {
-        this.updateSubscribedCRNs();
+        this.getSubscribedCRNs(this.user as any).subscribe((data) => {
+          this.userSubscriptions = data;
+        });
       }
     });
   }
@@ -46,9 +48,13 @@ export class AgGridService {
     );
   }
 
-  updateSubscribedCRNs(): void {
-    this.getSubscribedCRNs(this.user as any).subscribe((data) => {
-      this.userSubscriptions = data;
-    });
+  updateSubscribedCRNs(course: Course): void {
+    if (this.userSubscriptions.includes(course.CRN)) {
+      this.userSubscriptions = this.userSubscriptions.filter(
+        (crn) => crn !== course.CRN
+      );
+    } else {
+      this.userSubscriptions.push(course.CRN);
+    }
   }
 }
