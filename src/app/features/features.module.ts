@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { LoginButtonComponent } from './login-button/login-button.component';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { SubscriptionButtonComponent } from './ag-grid/subscription-button/subscription-button.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SubscriptionButtonComponent } from './ag-grid/subscription-button/subsc
     LoginButtonComponent,
     LogoutButtonComponent,
     SubscriptionButtonComponent,
+    UserInfoComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { SubscriptionButtonComponent } from './ag-grid/subscription-button/subsc
     CourseSearchBarComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
+    UserInfoComponent,
   ],
 })
 export class FeaturesModule {}
