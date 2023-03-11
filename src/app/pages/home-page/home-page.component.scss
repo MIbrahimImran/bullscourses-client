@@ -16,8 +16,17 @@
             }
         }
     }
+
+    &__searchbar {
+        margin-top: 16px;
+    }
 }
 
 ag-grid-angular {
     padding: 0 8px 0 8px;
+}
+
+.ag-theme-alpine {
+    --ag-header-foreground-color : #003049;
+    --ag-font-family: 'Roboto', sans-serif;
 }
