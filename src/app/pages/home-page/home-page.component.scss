@@ -1,14 +1,23 @@
-mat-toolbar {
-    display: flex;
-    justify-content: space-between;
+.home-page {
+    padding: 8px 8px 0 8px;
+    &__toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    app-course-search-bar {
-        height: 100%;
-        padding-top: 8px;
+        &__login {
+        display: flex;
+        align-items: center;
+
+            &__info {
+                display: flex;
+                align-items: center;
+                margin-right: 16px;
+            }
+        }
     }
 }
 
 ag-grid-angular {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 8px 0 8px;
 }

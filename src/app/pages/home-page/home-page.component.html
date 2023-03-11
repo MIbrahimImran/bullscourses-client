@@ -1,16 +1,24 @@
-<mat-toolbar>
+<div class="home-page">
+  <mat-toolbar color="secondary" class="home-page__toolbar">
     <span>BullsCourses</span>
-    <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
-    <div>
+    
+    <div class="home-page__toolbar__login">
+      <app-user-info class="home-page__toolbar__login__info"></app-user-info>
+      <div class="home-page__toolbar__login__button">
         <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-            <app-logout-button></app-logout-button>
-          </ng-container>
+          <app-logout-button></app-logout-button>
+        </ng-container>
+      
+        <ng-template #loggedOut>
+          <app-login-button></app-login-button>
+        </ng-template>
+      </div>
         
-          <ng-template #loggedOut>
-            <app-login-button></app-login-button>
-          </ng-template>
     </div>
 </mat-toolbar>
+
+  <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
+</div>
 
 <ag-grid-angular
     style="width: 100%; height: 100%;"
