@@ -1,5 +1,10 @@
-$my-primary: #007bff;
-$my-secondary: #6c757d;
-$my-success: #28a745;
-$my-warning: #ffc107;
-$my-danger: #dc3545;
+@import '@angular/material/theming';
+@include mat-core();
+
+  $primary: mat-palette($mat-blue,200);
+  $accent: mat-palette($mat-orange,200);
+  
+
+  $theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);

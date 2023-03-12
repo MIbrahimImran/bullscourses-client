@@ -1,9 +1,15 @@
 .home-page {
-    padding: 8px 8px 0 8px;
     &__toolbar {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        background-color: #023047;
+        color: #f1faee;
+
+        &__logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+        }
 
         &__login {
         display: flex;
@@ -18,7 +24,7 @@
     }
 
     &__searchbar {
-        margin-top: 16px;
+        margin: 16px 0 0px 8px;
     }
 }
 
