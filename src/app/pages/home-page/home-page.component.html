@@ -19,7 +19,7 @@
   <div class="home-page__searchbar">
     <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
   </div>
-  <section class="example-section">
+  <section *ngIf="agGridService.user">
     <mat-checkbox [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Subscription</mat-checkbox>
   </section>
 </div>
