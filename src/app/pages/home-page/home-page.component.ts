@@ -14,8 +14,8 @@ import { AgGridService } from 'src/app/features/ag-grid/ag-grid.service';
 export class HomePageComponent {
   constructor(
     private homePageService: HomePageService,
-    public auth: AuthService,
-    public agGridService: AgGridService
+    private agGridService: AgGridService,
+    public auth: AuthService
   ) {}
 
   defaultTerm = '202301';
@@ -69,75 +69,34 @@ export class HomePageComponent {
   };
 
   onSearchCourse(userInput: string): void {
+    userInput = userInput.trim();
     if (userInput.trim() === '') {
       this.rowData = [];
       return;
     }
 
-    this.homePageService.getAllCourses(this.defaultTerm).subscribe((data) => {
-      const coursesMatched = [];
-      for (const course of data) {
-        if (
-          this.isValidCourseTitle(userInput, course) ||
-          this.isValidCourseCRN(userInput, course) ||
-          this.isValidCourseCRS(userInput, course)
-        ) {
-          if (this.subscriptionChecked) {
-            if (this.isCourseSubscribed(course)) {
-              coursesMatched.push(course);
-            }
-          } else {
-            coursesMatched.push(course);
-          }
-        }
+    this.homePageService.getCourses(userInput).subscribe((data) => {
+      if (this.subscriptionChecked) {
+        this.setUsertSubscribedCourses();
+      } else {
+        this.rowData = data;
       }
-      this.rowData = coursesMatched;
     });
-  }
-
-  isValidCourseTitle(userInput: string, course: Course): boolean {
-    return course.TITLE?.toLowerCase().includes(userInput.toLowerCase());
-  }
-
-  isValidCourseCRN(userInput: string, course: Course): boolean {
-    return course.CRN?.toLowerCase().includes(userInput.toLowerCase());
-  }
-
-  isValidCourseCRS(userInput: string, course: Course): boolean {
-    const trimmedInput = userInput.trim();
-    const splitInput = trimmedInput.split(' ');
-    if (splitInput.length === 2) {
-      const [subject, courseNumber] = splitInput;
-      return (
-        course.SUBJ_CRS?.toLowerCase().includes(subject.toLowerCase()) &&
-        course.SUBJ_CRS?.toLowerCase().includes(courseNumber.toLowerCase())
-      );
-    } else {
-      return course.SUBJ_CRS?.toLowerCase().includes(userInput.toLowerCase());
-    }
   }
 
   setSubscriptionCheck(checkValue: boolean): void {
     this.subscriptionChecked = checkValue;
     if (checkValue) {
-      this.setOnlySubscribedCourses();
+      this.setUsertSubscribedCourses();
+    } else {
+      this.rowData = [];
     }
   }
 
-  setOnlySubscribedCourses(): void {
-    const userSubscriptions = this.agGridService.userSubscriptions;
-    this.homePageService.getAllCourses(this.defaultTerm).subscribe((data) => {
-      const subscribedCourses = [];
-      for (const course of data) {
-        if (userSubscriptions.includes(course.CRN)) {
-          subscribedCourses.push(course);
-        }
-      }
-      this.rowData = subscribedCourses;
+  setUsertSubscribedCourses(): void {
+    const user = this.agGridService.getLoggedInUser() as User;
+    this.homePageService.getUserSubscribedCourses(user).subscribe((data) => {
+      this.rowData = data;
     });
-  }
-
-  isCourseSubscribed(course: Course): boolean {
-    return this.agGridService.userSubscriptions.includes(course.CRN);
   }
 }
