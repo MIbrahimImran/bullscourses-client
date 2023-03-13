@@ -3,8 +3,8 @@ import { AuthService, User } from '@auth0/auth0-angular';
 import { ColDef } from 'ag-grid-community';
 import { Course } from 'src/app/interfaces/course.interface';
 import { HomePageService } from './home-page.service';
-import { map } from 'rxjs';
 import { SubscriptionButtonComponent } from 'src/app/features/ag-grid/subscription-button/subscription-button.component';
+import { AgGridService } from 'src/app/features/ag-grid/ag-grid.service';
 
 @Component({
   selector: 'app-home-page',
@@ -12,7 +12,14 @@ import { SubscriptionButtonComponent } from 'src/app/features/ag-grid/subscripti
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent {
+  constructor(
+    private homePageService: HomePageService,
+    public auth: AuthService,
+    public agGridService: AgGridService
+  ) {}
+
   defaultTerm = '202301';
+  subscriptionChecked = false;
 
   rowData: Course[] = [];
 
@@ -61,11 +68,6 @@ export class HomePageComponent {
     filter: true,
   };
 
-  constructor(
-    private homePageService: HomePageService,
-    public auth: AuthService
-  ) {}
-
   onSearchCourse(userInput: string): void {
     if (userInput.trim() === '') {
       this.rowData = [];
@@ -77,9 +79,16 @@ export class HomePageComponent {
       for (const course of data) {
         if (
           this.isValidCourseTitle(userInput, course) ||
-          this.isValidCourseCRN(userInput, course)
+          this.isValidCourseCRN(userInput, course) ||
+          this.isValidCourseCRS(userInput, course)
         ) {
-          coursesMatched.push(course);
+          if (this.subscriptionChecked) {
+            if (this.isCourseSubscribed(course)) {
+              coursesMatched.push(course);
+            }
+          } else {
+            coursesMatched.push(course);
+          }
         }
       }
       this.rowData = coursesMatched;
@@ -92,5 +101,43 @@ export class HomePageComponent {
 
   isValidCourseCRN(userInput: string, course: Course): boolean {
     return course.CRN?.toLowerCase().includes(userInput.toLowerCase());
+  }
+
+  isValidCourseCRS(userInput: string, course: Course): boolean {
+    const trimmedInput = userInput.trim();
+    const splitInput = trimmedInput.split(' ');
+    if (splitInput.length === 2) {
+      const [subject, courseNumber] = splitInput;
+      return (
+        course.SUBJ_CRS?.toLowerCase().includes(subject.toLowerCase()) &&
+        course.SUBJ_CRS?.toLowerCase().includes(courseNumber.toLowerCase())
+      );
+    } else {
+      return course.SUBJ_CRS?.toLowerCase().includes(userInput.toLowerCase());
+    }
+  }
+
+  setSubscriptionCheck(checkValue: boolean): void {
+    this.subscriptionChecked = checkValue;
+    if (checkValue) {
+      this.setOnlySubscribedCourses();
+    }
+  }
+
+  setOnlySubscribedCourses(): void {
+    const userSubscriptions = this.agGridService.userSubscriptions;
+    this.homePageService.getAllCourses(this.defaultTerm).subscribe((data) => {
+      const subscribedCourses = [];
+      for (const course of data) {
+        if (userSubscriptions.includes(course.CRN)) {
+          subscribedCourses.push(course);
+        }
+      }
+      this.rowData = subscribedCourses;
+    });
+  }
+
+  isCourseSubscribed(course: Course): boolean {
+    return this.agGridService.userSubscriptions.includes(course.CRN);
   }
 }

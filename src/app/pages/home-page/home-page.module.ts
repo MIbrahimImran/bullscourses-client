@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { AgGridModule } from 'ag-grid-angular';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [HomePageComponent],
@@ -16,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     AgGridModule,
     MatToolbarModule,
     FeaturesModule,
+    MatCheckboxModule,
   ],
   exports: [HomePageComponent],
 })
