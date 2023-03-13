@@ -53,4 +53,8 @@ export class AgGridService {
       this.userSubscriptions.push(course.CRN);
     }
   }
+
+  getLoggedInUser(): User | null | undefined {
+    return this.user;
+  }
 }
