@@ -19,7 +19,7 @@ export class HomePageService {
 
   getUserSubscribedCourses(user: User): Observable<Course[]> {
     return this.http.get<Course[]>(
-      `${this.API_URL}/courses/subscribed/${user.email}`
+      `${this.API_URL}/subscription/getSubscribedCourses/${user.email}`
     );
   }
 }
