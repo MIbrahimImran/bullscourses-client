@@ -19,9 +19,11 @@
   <div class="home-page__searchbar">
     <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
   </div>
-  <section *ngIf="auth.isAuthenticated$ | async">
-    <mat-checkbox [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Show subscriptions only</mat-checkbox>
+  <section >
+    <mat-checkbox *ngIf="auth.isAuthenticated$ | async" [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Show subscriptions only</mat-checkbox>
+    <mat-checkbox [checked]="true" [disabled]="true">Fall 2023</mat-checkbox>
   </section>
+  
 </div>
 
 <ag-grid-angular
