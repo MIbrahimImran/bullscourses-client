@@ -9,6 +9,7 @@ import { LoginButtonComponent } from './login-button/login-button.component';
 import { LogoutButtonComponent } from './logout-button/logout-button.component';
 import { SubscriptionButtonComponent } from './ag-grid/subscription-button/subscription-button.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatButtonModule,
+    MatTooltipModule,
   ],
   exports: [
     CourseSearchBarComponent,

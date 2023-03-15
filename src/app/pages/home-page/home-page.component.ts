@@ -25,13 +25,13 @@ export class HomePageComponent {
 
   columnDefs: ColDef[] = [
     { field: 'CRN', maxWidth: 100 },
-    { field: 'SUBJ_CRS', headerName: 'Subject', maxWidth: 150 },
+    { field: 'SUBJ_CRS', headerName: 'Subject', maxWidth: 120 },
     {
       field: 'TITLE',
       headerName: 'Course Title',
-      width: 350,
+      width: 220,
     },
-    { field: 'TIME', headerName: 'Time', maxWidth: 200 },
+    { field: 'TIME', headerName: 'Time', maxWidth: 170 },
     { field: 'CR', headerName: 'Credit', maxWidth: 100 },
     {
       field: 'SEATSREMAIN',
@@ -57,8 +57,8 @@ export class HomePageComponent {
         return { color: 'green', fontWeight: 'bold' };
       },
     },
-    { field: 'INSTRUCTOR', headerName: 'Instructor', maxWidth: 200 },
-    { field: 'BLDG', headerName: 'Building', maxWidth: 150 },
+    { field: 'INSTRUCTOR', headerName: 'Instructor', maxWidth: 150 },
+    { field: 'BLDG', headerName: 'Building', maxWidth: 100 },
     { field: 'Notification', cellRenderer: SubscriptionButtonComponent },
   ];
 

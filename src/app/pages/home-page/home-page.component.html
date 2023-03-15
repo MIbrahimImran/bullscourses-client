@@ -20,7 +20,7 @@
     <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
   </div>
   <section *ngIf="auth.isAuthenticated$ | async">
-    <mat-checkbox [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Subscription</mat-checkbox>
+    <mat-checkbox [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Show subscriptions only</mat-checkbox>
   </section>
 </div>
 
