@@ -13,7 +13,7 @@ export class UserInfoComponent {
 
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
-      this.givenName = user?.given_name;
+      this.givenName = user?.given_name ? user.given_name : user?.nickname;
     });
   }
 }
