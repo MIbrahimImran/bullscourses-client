@@ -24,7 +24,7 @@ export class HomePageComponent {
   rowData: Course[] = [];
 
   columnDefs: ColDef[] = [
-    { field: 'CRN', maxWidth: 100 },
+    { field: 'CRN', maxWidth: 90 },
     { field: 'SUBJ_CRS', headerName: 'Subject', maxWidth: 120 },
     {
       field: 'TITLE',
@@ -32,11 +32,11 @@ export class HomePageComponent {
       width: 220,
     },
     { field: 'TIME', headerName: 'Time', maxWidth: 170 },
-    { field: 'CR', headerName: 'Credit', maxWidth: 100 },
+    { field: 'CR', headerName: 'Credit', maxWidth: 90 },
     {
       field: 'SEATSREMAIN',
       headerName: 'Seats',
-      maxWidth: 100,
+      maxWidth: 90,
       cellStyle: (params) => {
         if (params.value <= 0) {
           return { color: 'red', fontWeight: 'bold' };
@@ -49,7 +49,7 @@ export class HomePageComponent {
     {
       field: 'STATUS',
       headerName: 'Status',
-      maxWidth: 100,
+      maxWidth: 90,
       cellStyle: (params) => {
         if (params.value === 'Closed') {
           return { color: 'red', fontWeight: 'bold' };
