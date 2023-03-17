@@ -37,7 +37,7 @@ export class HomePageComponent {
         
         return params.value.split('').join(' ');
       }    
-  },
+    },
     { field: 'CR', headerName: 'Credit', maxWidth: 90 },
     {
       field: 'SEATSREMAIN',
