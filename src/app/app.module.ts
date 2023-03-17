@@ -20,6 +20,7 @@ import { AuthModule } from '@auth0/auth0-angular';
       authorizationParams: {
         redirect_uri: window.location.origin,
       },
+      cacheLocation: 'localstorage',
     }),
   ],
   providers: [],

@@ -1,0 +1,8 @@
+<button mat-button [matMenuTriggerFor]="userAccountMenu">
+    <app-user-info></app-user-info>
+</button> 
+
+
+<mat-menu #userAccountMenu="matMenu">
+    <button mat-menu-item color="warn" (click)="logout()"> <mat-icon>logout</mat-icon> Logout</button>
+</mat-menu>
