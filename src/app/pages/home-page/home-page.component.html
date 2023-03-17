@@ -2,19 +2,19 @@
   <mat-toolbar class="home-page__toolbar">
     <span class="home-page__toolbar__logo">BullsCourses</span>
     
-    <div class="home-page__toolbar__login">
-      <app-user-info class="home-page__toolbar__login__info"></app-user-info>
-      <div class="home-page__toolbar__login__button">
-        <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-          <app-logout-button></app-logout-button>
-        </ng-container>
-      
-        <ng-template #loggedOut>
-          <app-login-button></app-login-button>
-        </ng-template>
-      </div>
+    <div class="home-page__toolbar__options">
+        <app-help-button class="home-page__toolbar__options__help"></app-help-button>
+        <div class="home-page__toolbar__options__account">
+          <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+            <app-user-menu></app-user-menu>
+          </ng-container>
         
+          <ng-template #loggedOut>
+            <app-login-button></app-login-button>
+          </ng-template> 
+      </div>
     </div>
+    
 </mat-toolbar>
   <div class="home-page__searchbar">
     <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>

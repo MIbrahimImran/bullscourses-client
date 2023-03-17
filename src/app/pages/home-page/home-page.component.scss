@@ -11,14 +11,17 @@
             font-size: 24px;
         }
 
-        &__login {
-        display: flex;
-        align-items: center;
+        &__options {
+            display: flex;
+            align-items: center;
 
-            &__info {
+            &__help {
+                margin-right: 8px;
+            }
+
+            &__account {
                 display: flex;
                 align-items: center;
-                margin-right: 16px;
             }
         }
     }

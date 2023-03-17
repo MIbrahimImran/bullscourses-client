@@ -1,9 +1,19 @@
-img {
-    display: block;
-    margin: 0 auto;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    padding: 5px;
+.user-info {
+    display: flex;
+    align-items: center;
+
+    &__picture {
+        display: block;
+        margin: 0 auto;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    &__name {
+        margin-left: 10px;
+        font-size: 18px;
+        font-weight: 400;
+    }
   }
-  
