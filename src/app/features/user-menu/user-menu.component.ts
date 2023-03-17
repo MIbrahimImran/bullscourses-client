@@ -3,11 +3,11 @@ import { Component, Inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-logout-button',
-  templateUrl: './logout-button.component.html',
-  styleUrls: ['./logout-button.component.scss'],
+  selector: 'app-user-menu',
+  templateUrl: './user-menu.component.html',
+  styleUrls: ['./user-menu.component.scss'],
 })
-export class LogoutButtonComponent {
+export class UserMenuComponent {
   constructor(
     public auth: AuthService,
     @Inject(DOCUMENT) public doc: Document
