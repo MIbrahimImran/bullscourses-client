@@ -32,11 +32,13 @@ export class HomePageComponent {
       width: 220,
     },
     { field: 'TIME', headerName: 'Time', maxWidth: 170 },
-    { field: 'DAYS', headerName: 'Days', maxWidth: 90,
+    {
+      field: 'DAYS',
+      headerName: 'Days',
+      maxWidth: 90,
       valueFormatter: (params) => {
-        
         return params.value.split('').join(' ');
-      }    
+      },
     },
     { field: 'CR', headerName: 'Credit', maxWidth: 90 },
     {
