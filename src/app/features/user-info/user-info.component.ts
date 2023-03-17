@@ -14,7 +14,6 @@ export class UserInfoComponent {
 
   ngOnInit(): void {
     this.auth.user$.subscribe((user) => {
-      console.log(user?.picture);
       this.givenName = user?.given_name ? user.given_name : user?.nickname;
       this.profilePictureUrl = user?.picture;
     });
