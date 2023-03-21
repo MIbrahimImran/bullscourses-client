@@ -6,7 +6,7 @@ BullsCourses is an open-source project dedicated to creating a robust and featur
 2. The maintainers will review your request and prioritize it based on the project's roadmap and overall goals. If your feature request is accepted, it will be added to the project's backlog.
 3. You are encouraged to implement the feature yourself and submit a pull request, following the contribution guidelines outlined below.
 
-### Contribution Guidelines
+## Contribution Guidelines
 Please follow these guidelines when contributing to the project:
 1. Fork the repository and create a new branch for your feature.
 2. Ensure your code adheres to the project's coding standards and style guide.
@@ -15,10 +15,10 @@ Please follow these guidelines when contributing to the project:
 5. Submit a pull request against the main branch, and wait for a maintainer to review your changes.
 
 
-### Becoming a Maintainer
+## Becoming a Maintainer
 We don't have a strict rule for becoming a maintainer, but generally, if you contribute by implementing any three small features or one large feature, you may be eligible for maintainer status. The project's core team will review your contributions and determine your eligibility based on the quality and impact of your work.
 
-### General Guidelines
+## General Guidelines
 To ensure a positive and productive experience for all contributors, please follow these general guidelines:
 
 1. Be respectful and considerate of other contributors, acknowledging that everyone has different skill levels and areas of expertise.
