@@ -27,3 +27,7 @@ To ensure a positive and productive experience for all contributors, please foll
 4. Communicate clearly and effectively, using appropriate channels for project-related discussions.
 
 By following these guidelines, you will help create a welcoming and collaborative environment for everyone involved in the project. We look forward to your contributions and thank you for your support!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE.md).
