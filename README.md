@@ -12,7 +12,7 @@ Please follow these guidelines when contributing to the project:
 2. Ensure your code adheres to the project's coding standards and style guide.
 3. Write clear and concise commit messages, and reference any related issues.
 4. If necessary, update the documentation (README.md, wiki, etc.) to reflect your changes.
-5. Submit a pull request against the main branch, and wait for a maintainer to review your changes.
+5. Submit a pull request against the develop branch, and wait for a maintainer to review your changes.
 
 
 ## Becoming a Maintainer
@@ -22,8 +22,8 @@ We don't have a strict rule for becoming a maintainer, but generally, if you con
 To ensure a positive and productive experience for all contributors, please follow these general guidelines:
 
 1. Be respectful and considerate of other contributors, acknowledging that everyone has different skill levels and areas of expertise.
-Stay on topic and keep discussions focused on the project and its goals.
-2. Be open to feedback and willing to iterate on your work as needed.
-3. Communicate clearly and effectively, using appropriate channels for project-related discussions.
+2. Stay on topic and keep discussions focused on the project and its goals.
+3. Be open to feedback and willing to iterate on your work as needed.
+4. Communicate clearly and effectively, using appropriate channels for project-related discussions.
 
 By following these guidelines, you will help create a welcoming and collaborative environment for everyone involved in the project. We look forward to your contributions and thank you for your support!
