@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '@auth0/auth0-angular';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Course } from 'src/app/interfaces/course.interface';
 import { environment } from 'src/environments/environment';
 
@@ -21,5 +21,13 @@ export class HomePageService {
     return this.http.get<Course[]>(
       `${this.API_URL}/subscription/getSubscribedCourses/${user.email}`
     );
+  }
+
+  getSubscriptionsCount(): Observable<number> {
+    return this.http.get<number>(`${this.API_URL}/subscription/count`);
+  }
+
+  getUserCount(): Observable<number> {
+    return this.http.get<number>(`${this.API_URL}/user/count`);
   }
 }

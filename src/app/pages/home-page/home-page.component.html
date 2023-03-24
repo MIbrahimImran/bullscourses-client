@@ -18,13 +18,18 @@
 </mat-toolbar>
   <div class="home-page__searchbar">
     <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
+    <div class="home-page__searchbar__stats">
+       <app-site-stats *ngIf="!isUserLoggedIn()" icon="person" title="Total Users" stats={{userCount}}></app-site-stats>
+       <app-site-stats *ngIf="!isUserLoggedIn()" icon="mark_email_unread" title="Total Subscriptions" stats={{subscriptionCount}}></app-site-stats>
+    </div>
   </div>
   <section >
     <mat-checkbox *ngIf="auth.isAuthenticated$ | async" [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Show subscriptions only</mat-checkbox>
     <mat-checkbox [checked]="true" [disabled]="true">Fall 2023</mat-checkbox>
   </section>
-  
 </div>
+
+
 
 <ag-grid-angular
     style="width: 100%; height: 100%;"
