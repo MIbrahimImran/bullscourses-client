@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { SiteStatsComponent } from './site-stats/site-stats.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
     UserInfoComponent,
     HelpButtonComponent,
     UserMenuComponent,
+    SiteStatsComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +45,7 @@ import { MatDividerModule } from '@angular/material/divider';
     UserInfoComponent,
     HelpButtonComponent,
     UserMenuComponent,
+    SiteStatsComponent,
   ],
 })
 export class FeaturesModule {}

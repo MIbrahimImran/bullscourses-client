@@ -1,27 +1,33 @@
-# CnsUi
+# BullsCourses
+[BullsCourses](https://www.bullscourses.com) is an open-source project dedicated to creating a robust and feature-rich application. We welcome community contributions, and we're always looking for new features to enhance the project. If you have a feature request, please follow the guidelines below to submit it and potentially become a project maintainer.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+## Feature Requests
+1. Create a new issue in the GitHub repository describing the feature you'd like to see implemented. Please be as detailed as possible, including any relevant use cases, design considerations, and potential challenges.
+2. The maintainers will review your request and prioritize it based on the project's roadmap and overall goals. If your feature request is accepted, it will be added to the project's backlog.
+3. You are encouraged to implement the feature yourself and submit a pull request, following the contribution guidelines outlined below.
 
-## Development server
+## Contribution Guidelines
+Please follow these guidelines when contributing to the project:
+1. Fork the repository and create a new branch for your feature.
+2. Ensure your code adheres to the project's coding standards and style guide.
+3. Write clear and concise commit messages, and reference any related issues.
+4. If necessary, update the documentation (README.md, wiki, etc.) to reflect your changes.
+5. Submit a pull request against the develop branch, and wait for a maintainer to review your changes.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Becoming a Maintainer
+We don't have a strict rule for becoming a maintainer, but generally, if you contribute by implementing any three small features or one large feature, you may be eligible for maintainer status. The project's core team will review your contributions and determine your eligibility based on the quality and impact of your work.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## General Guidelines
+To ensure a positive and productive experience for all contributors, please follow these general guidelines:
 
-## Build
+1. Be respectful and considerate of other contributors, acknowledging that everyone has different skill levels and areas of expertise.
+2. Stay on topic and keep discussions focused on the project and its goals.
+3. Be open to feedback and willing to iterate on your work as needed.
+4. Communicate clearly and effectively, using appropriate channels for project-related discussions.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+By following these guidelines, you will help create a welcoming and collaborative environment for everyone involved in the project. We look forward to your contributions and thank you for your support!
 
-## Running unit tests
+## License
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This project is licensed under the [MIT License](LICENSE.md).

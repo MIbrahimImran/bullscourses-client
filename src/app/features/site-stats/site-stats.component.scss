@@ -1,0 +1,27 @@
+.stats-card {
+    width: auto;
+    height: 56px;
+    padding: 8px;
+    background-color: #f1faee;
+    margin-left: 10px;
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 800;
+        color: #003049;
+
+        &__icon {
+            margin-right: 8px;
+        }
+    }
+
+    &__value {
+        display: flex;
+        justify-content: end;
+        font-size: 16px;
+        font-weight: 500;
+        color: #003049;
+    }
+}
