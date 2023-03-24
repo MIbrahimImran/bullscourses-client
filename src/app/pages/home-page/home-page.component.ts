@@ -16,12 +16,23 @@ export class HomePageComponent {
     private homePageService: HomePageService,
     private agGridService: AgGridService,
     public auth: AuthService
-  ) {}
+  ) {
+    this.homePageService.getSubscriptionsCount().subscribe((count) => {
+      this.subscriptionCount = count;
+    });
+
+    this.homePageService.getUserCount().subscribe((count) => {
+      this.userCount = count;
+    });
+  }
 
   defaultTerm = '202301';
   subscriptionChecked = false;
 
   rowData: Course[] = [];
+
+  subscriptionCount = 0;
+  userCount = 0;
 
   columnDefs: ColDef[] = [
     { field: 'CRN', maxWidth: 90 },
@@ -106,5 +117,9 @@ export class HomePageComponent {
     this.homePageService.getUserSubscribedCourses(user).subscribe((data) => {
       this.rowData = data;
     });
+  }
+
+  isUserLoggedIn(): boolean {
+    return this.agGridService.getLoggedInUser() !== null;
   }
 }
