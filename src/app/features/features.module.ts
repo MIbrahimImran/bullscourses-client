@@ -16,6 +16,7 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { SiteStatsComponent } from './site-stats/site-stats.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SiteStatsComponent } from './site-stats/site-stats.component';
     MatIconModule,
     MatMenuModule,
     MatDividerModule,
+    MatSnackBarModule,
   ],
   exports: [
     CourseSearchBarComponent,
