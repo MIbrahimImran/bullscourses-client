@@ -57,4 +57,10 @@ export class AgGridService {
   getLoggedInUser(): User | null | undefined {
     return this.user;
   }
+
+  getUserSubscribedCourses(user: User): Observable<Course[]> {
+    return this.http.get<Course[]>(
+      `${this.API_URL}/subscription/getSubscribedCourses/${user.email}`
+    );
+  }
 }
