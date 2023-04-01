@@ -1,0 +1,23 @@
+<div>
+<button mat-fab 
+        extended 
+        color="primary"
+        matTooltip="Only logged in users can subscribe" 
+        [disabled]="!(userAuthenticated$ | async)"
+        (click)="onSubscribe()"
+        >
+        Subscribe
+</button>
+</div>
+
+<div>
+<button mat-fab 
+        extended
+        color="warn"
+        matTooltip="Only logged in users can subscribe" 
+        [disabled]="!(userAuthenticated$ | async)"
+        (click)="onUnsubscribe()"
+        >
+        Unsubscribe
+</button>
+</div>
