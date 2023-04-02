@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserInfoComponent } from './user-info.component';
+import { CourseGridComponent } from './course-grid.component';
 
-describe('UserInfoComponent', () => {
-  let component: UserInfoComponent;
-  let fixture: ComponentFixture<UserInfoComponent>;
+describe('CourseGridComponent', () => {
+  let component: CourseGridComponent;
+  let fixture: ComponentFixture<CourseGridComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UserInfoComponent ]
+      declarations: [ CourseGridComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserInfoComponent);
+    fixture = TestBed.createComponent(CourseGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

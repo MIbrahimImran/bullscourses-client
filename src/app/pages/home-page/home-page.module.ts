@@ -1,22 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
-import { FeaturesModule } from 'src/app/features/features.module';
-import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { AgGridModule } from 'ag-grid-angular';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { CourseModule } from 'src/app/features/course/course.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { UserModule } from 'src/app/features/user/user.module';
 
 @NgModule({
   declarations: [HomePageComponent],
   imports: [
-    CommonModule,
-    HttpClientModule,
     MatTableModule,
-    AgGridModule,
+    CourseModule,
+    SharedModule,
+    UserModule,
     MatToolbarModule,
-    FeaturesModule,
     MatCheckboxModule,
   ],
   exports: [HomePageComponent],

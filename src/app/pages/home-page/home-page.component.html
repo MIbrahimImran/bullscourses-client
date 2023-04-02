@@ -1,40 +1,13 @@
 <div class="home-page">
   <mat-toolbar class="home-page__toolbar">
     <span class="home-page__toolbar__logo">BullsCourses</span>
-    
     <div class="home-page__toolbar__options">
-        <app-help-button class="home-page__toolbar__options__help"></app-help-button>
-        <div class="home-page__toolbar__options__account">
-          <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
-            <app-user-menu></app-user-menu>
-          </ng-container>
-        
-          <ng-template #loggedOut>
-            <app-login-button></app-login-button>
-          </ng-template> 
-      </div>
+      <app-help-button class="home-page__toolbar__options__help"></app-help-button>
+      <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
     </div>
-    
-</mat-toolbar>
-  <div class="home-page__searchbar">
-    <app-course-search-bar (userInput)="onSearchCourse($event)"></app-course-search-bar>
-    <div class="home-page__searchbar__stats">
-       <app-site-stats *ngIf="!isUserLoggedIn()" icon="person" title="Total Users" stats={{userCount}}></app-site-stats>
-       <app-site-stats *ngIf="!isUserLoggedIn()" icon="mark_email_unread" title="Total Subscriptions" stats={{subscriptionCount}}></app-site-stats>
-    </div>
-  </div>
-  <section >
-    <mat-checkbox *ngIf="auth.isAuthenticated$ | async" [checked]="subscriptionChecked" (change)="setSubscriptionCheck($event.checked)">Show subscriptions only</mat-checkbox>
-    <mat-checkbox [checked]="true" [disabled]="true">Fall 2023</mat-checkbox>
-  </section>
+  </mat-toolbar>
+
+  <app-course-search-bar class="home-page__searchbar"></app-course-search-bar>
 </div>
 
-
-
-<ag-grid-angular
-    style="width: 100%; height: 100%;"
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-    [columnDefs]="columnDefs"
-    [defaultColDef]="defaultColDef">
-</ag-grid-angular>
+<app-course-grid></app-course-grid>

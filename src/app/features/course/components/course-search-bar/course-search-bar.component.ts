@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CourseService } from '../../services/course.service';
 
 @Component({
   selector: 'app-course-search-bar',
@@ -7,17 +8,13 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./course-search-bar.component.scss'],
 })
 export class CourseSearchBarComponent {
-  @Output() userInput = new EventEmitter<string>();
+  searchCourse = new FormControl('') as FormControl;
 
-  searchForm: FormGroup;
-
-  constructor() {
-    this.searchForm = new FormGroup({
-      searchTerm: new FormControl(''),
-    });
-  }
+  constructor(private courseService: CourseService) {}
 
   onSearchCourse(): void {
-    this.userInput.emit(this.searchForm.controls['searchTerm'].value);
+    if (this.searchCourse.value) {
+      this.courseService.setCoursesBySearch(this.searchCourse.value);
+    }
   }
 }
