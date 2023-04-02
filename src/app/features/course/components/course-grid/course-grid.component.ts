@@ -29,59 +29,54 @@ export class CourseGridComponent {
 
   onGridReady(params: any): void {
     this.gridApi = params.api;
-    this.gridApi.sizeColumnsToFit();
   }
 
   getColumnDefs(): ColDef[] {
     return [
-      { field: 'CRN', maxWidth: 90 },
-      { field: 'SUBJ_CRS', headerName: 'Subject', maxWidth: 120 },
-      { field: 'TITLE', headerName: 'Title' },
-      { field: 'TIME', headerName: 'Time', maxWidth: 170 },
+      { field: 'CRN', width: 90 },
+      { field: 'SUBJ_CRS', headerName: 'Subject', width: 120 },
+      { field: 'TITLE', headerName: 'Title', width: 250 },
+      { field: 'TIME', headerName: 'Time', width: 170 },
       {
         field: 'DAYS',
         headerName: 'Days',
-        maxWidth: 90,
+        width: 90,
         valueFormatter: this.formatDays,
       },
       {
         field: 'CR',
         headerName: 'Credit',
-        maxWidth: 90,
+        width: 90,
       },
       {
         field: 'SEATSREMAIN',
         headerName: 'Seats',
-        maxWidth: 90,
+        width: 90,
         cellStyle: this.styleSeats,
       },
       {
         field: 'STATUS',
         headerName: 'Status',
-        maxWidth: 90,
+        width: 90,
         cellStyle: this.styleStatus,
       },
       {
         field: 'INSTRUCTOR',
         headerName: 'Instructor',
-        maxWidth: 170,
+        width: 140,
       },
-      { field: 'BLDG', headerName: 'Building', maxWidth: 100 },
+      { field: 'BLDG', headerName: 'Building', width: 100 },
       {
         field: 'Subscription',
         cellRenderer: SubscriptionButtonComponent,
+        minWidth: 120,
+        maxWidth: 140,
       },
     ];
   }
 
   getDefaultColDef(): ColDef {
-    return {
-      sortable: true,
-      filter: true,
-      resizable: true,
-      flex: 1,
-      minWidth: 100,
-    };
+    return { sortable: true, resizable: true, filter: true };
   }
 
   formatDays(params: any): string {

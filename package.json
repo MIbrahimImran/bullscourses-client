@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
-    "@auth0/auth0-angular": "^2.0.1",
+    "@auth0/auth0-angular": "^2.0.2",
     "ag-grid-angular": "^29.1.0",
     "ag-grid-community": "^29.1.0",
     "rxjs": "~7.8.0",

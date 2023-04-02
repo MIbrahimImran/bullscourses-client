@@ -2,6 +2,8 @@
 <button mat-fab 
         extended 
         color="primary"
+        *ngIf="!isSubscribed()"
+        [matTooltipDisabled]="(userAuthenticated$ | async)" 
         matTooltip="Only logged in users can subscribe" 
         [disabled]="!(userAuthenticated$ | async)"
         (click)="onSubscribe()"
@@ -14,6 +16,8 @@
 <button mat-fab 
         extended
         color="warn"
+        *ngIf="isSubscribed()" 
+        [matTooltipDisabled]="(userAuthenticated$ | async)" 
         matTooltip="Only logged in users can subscribe" 
         [disabled]="!(userAuthenticated$ | async)"
         (click)="onUnsubscribe()"

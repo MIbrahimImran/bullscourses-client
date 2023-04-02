@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageModule } from './pages/home-page/home-page.module';
 import { AuthModule } from '@auth0/auth0-angular';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { JwtInterceptor } from './core/auth/jwt.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,15 +18,23 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     HomePageModule,
     AuthModule.forRoot({
-      domain: 'dev-emlye3kgd7a8fcl2.us.auth0.com',
-      clientId: 'x2QmevFDW71EmRrmU9rC4Hxn6wFgjPQt',
+      domain: environment.AUTH0_DOMAIN,
+      clientId: environment.AUTH0_CLIENT_ID,
       authorizationParams: {
-        redirect_uri: window.location.origin,
+        redirect_uri: environment.AUTH0_REDIRECT_URI,
+        audience: environment.AUTH0_AUDIENCE,
+        scope: 'openid profile email',
       },
       cacheLocation: 'localstorage',
     }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

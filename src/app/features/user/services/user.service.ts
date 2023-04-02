@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class UserService {
   public user: User | undefined | null = null;
+
   constructor(
     private authService: AuthService,
     @Inject(DOCUMENT) public doc: Document
@@ -33,5 +34,9 @@ export class UserService {
 
   get user$(): Observable<User | undefined | null> {
     return this.authService.user$;
+  }
+
+  getUser(): User | undefined | null {
+    return this.user;
   }
 }
