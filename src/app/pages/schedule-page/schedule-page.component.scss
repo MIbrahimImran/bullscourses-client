@@ -19,6 +19,8 @@
     background-color:#023047;
     // overflow: auto;
     // padding: 10px;
+    min-width: 300px;
+    
 
   }
   
@@ -88,3 +90,60 @@
   min-height: 100%;
   /* Additional styling if required */
 }
+
+@media (max-width: 600px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .left-component,
+  .right-component {
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .box {
+    flex-direction: column;
+  }
+}
+
+
+
+.toolbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  text-decoration: none;
+}
+
+.home-page__toolbar__logo {
+  font-family: 'Nunito', sans-serif;
+  font-size: 24px;
+}
+
+.create-schedules-btn {
+  padding: 15px;
+}
+
+@media (max-width: 600px) {
+  .toolbar-content {
+      width: 100%;
+      padding: 0 10px; /* Add some padding on small screens */
+      justify-content: space-between;
+
+  }
+
+  .home-page__toolbar__logo {
+      font-size: 18px; /* Decrease the font size on small screens */
+  }
+
+  .create-schedules-btn {
+      padding: 10px; /* Decrease the padding on small screens */
+      font-size: 0.6rem; /* Decrease the font size */
+  }
+}
+
+
