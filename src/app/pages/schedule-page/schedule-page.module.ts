@@ -6,6 +6,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CourseModule } from 'src/app/features/course/course.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { UserModule } from 'src/app/features/user/user.module';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input'; // Add this line
+import { MatFormFieldModule } from '@angular/material/form-field'; // Add this line
 
 @NgModule({
   declarations: [SchedulePageComponent],
@@ -16,6 +19,9 @@ import { UserModule } from 'src/app/features/user/user.module';
     UserModule,
     MatTableModule,
     MatCheckboxModule,
+    FormsModule,
+    MatInputModule, 
+    MatFormFieldModule,
   ],
   exports: [SchedulePageComponent],
 })

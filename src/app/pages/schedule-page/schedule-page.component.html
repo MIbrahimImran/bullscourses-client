@@ -1,18 +1,27 @@
-<div class="home-page">
-    <mat-toolbar class="home-page__toolbar">
-        <span class="home-page__toolbar__logo">BullsCourses</span>
-        <div class="home-page__toolbar__options">
-            <app-help-button class="home-page__toolbar__options__help"></app-help-button>
-            <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
+<div class="main">
+    <div class="left-component">
+        <div *ngFor="let input of inputList; let i = index" class="box">
+          <form>
+            <input
+              matInput
+              name="name"
+              placeholder="Enter Course"
+              [(ngModel)]="inputList[i].name"
+            />
+          </form>
         </div>
-    </mat-toolbar>
-</div>
-
-<div style="height: 100vh; display: flex;">
-    <div style="flex: 1; background-color: antiquewhite; height: 100%; display: flex; justify-content: space-evenly; align-items: center;">
-        <label for="" style="font-size: 20px;">Enter course Code</label>
-        <input placeholder="COP 2510" style="padding: 10px;">
+        <button (click)="handleAddClick()">Add more</button>
+        <button (click)="generateSchedules()">Generate Schedules</button>
+      </div>
+      
+    <div *ngFor="let schedule of schedules; let index = index">
+      <h3>Schedule {{ index + 1 }}</h3>
+      <div *ngFor="let course of schedule">
+        <div>
+          <span>CRN: {{ course.crn }}</span> - <span>Name: {{ course.name }}</span> -
+          <span>Days: {{ course.days }}</span> - <span>Time: {{ course.time }}</span>
+        </div>
+      </div>
     </div>
-    <div style="flex: 4; background-color: white; height: 100%;"></div>
-</div>
-
+  </div>
+  

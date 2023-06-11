@@ -1,25 +1,42 @@
-.home-page {
-    &__toolbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #023047;
-        color: #f1faee;
-
-        &__logo {
-            font-family: 'Nunito', sans-serif;
-            font-size: 24px;
-        }
-
-        &__options {
-            display: flex;
-            align-items: center;
-        }
-    }
-
-    &__searchbar {
-        display: flex;
-        justify-content: space-between;
-        margin: 16px 8px 0 8px;
-    }
-}
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .left-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  .box input {
+    width: 200px;
+    height: 30px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
