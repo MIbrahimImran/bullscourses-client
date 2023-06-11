@@ -1,0 +1,25 @@
+.home-page {
+    &__toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #023047;
+        color: #f1faee;
+
+        &__logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+        }
+
+        &__options {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__searchbar {
+        display: flex;
+        justify-content: space-between;
+        margin: 16px 8px 0 8px;
+    }
+}

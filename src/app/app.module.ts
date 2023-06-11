@@ -8,6 +8,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { JwtInterceptor } from './core/auth/jwt.interceptor';
+import { SchedulePageModule } from './pages/schedule-page/schedule-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { JwtInterceptor } from './core/auth/jwt.interceptor';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    SchedulePageModule,
     HomePageModule,
     AuthModule.forRoot({
       domain: environment.AUTH0_DOMAIN,
