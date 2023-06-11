@@ -9,10 +9,12 @@ import { UserModule } from 'src/app/features/user/user.module';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; // Add this line
 import { MatFormFieldModule } from '@angular/material/form-field'; // Add this line
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [SchedulePageComponent],
   imports: [
+     CommonModule,
     MatToolbarModule,
     CourseModule,
     SharedModule,

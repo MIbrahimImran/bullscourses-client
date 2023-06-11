@@ -1,17 +1,25 @@
 .main {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    // align-items: center;
+    // justify-content: center;
+    // padding-top: 1px;
+    // height: 100vh;
+    height: 100%;
   }
   
   .left-component {
+    flex: 1;
     display: flex;
     flex-direction: column;
+    // justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    height: 100%;
+    background-color:#023047;
+    // overflow: auto;
+    // padding: 10px;
+
   }
   
   .box {
@@ -23,7 +31,7 @@
   }
   
   .box input {
-    width: 200px;
+    width: 10vw;
     height: 30px;
     padding: 5px 10px;
     margin-right: 10px;
@@ -39,4 +47,44 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+
+.home-page {
+  height: 100vh;
+  overflow: hidden;
+    &__toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #023047;
+        color: #f1faee;
+
+        &__logo {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+        }
+
+        &__options {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__searchbar {
+        display: flex;
+        justify-content: space-between;
+        margin: 16px 8px 0 8px;
+    }
+}
   
+.right-component{
+  flex: 4;
+  width: 100%;
+  overflow: auto;
+  padding: 50px;
+}
+
+.right-component__scrollable {
+  min-height: 100%;
+  /* Additional styling if required */
+}
