@@ -21,6 +21,7 @@
       <div *ngFor="let input of inputList; let i = index" class="box" style=" margin-top: 30px; margin-bottom: 20px;">
         <form>
           <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" />
+          <input type="color" name="color" [(ngModel)]="inputList[i].color" style="width: 50px;" />
           <button (click)="handleRemoveClick()" style="margin-bottom: 20px;">Remove</button>
         </form>
       </div>
@@ -29,22 +30,15 @@
     </div>
     <div class="right-component">
       <div class="right-component__scrollable">
-        <div *ngFor="let schedule of schedules; let index = index" style="margin-bottom: 10px;">
-          <h3>Schedule {{ index + 1 }}</h3>
-          <div *ngFor="let course of schedule">
-            <div>
-              <span>CRN: {{ course.crn }}</span> - <span>Name: {{ course.name }}</span> -
-              <span>Days: {{ course.days }}</span> - <span>Time: {{ course.time }}</span>
-            </div>
-          </div>
-        </div>
         <mwl-calendar-week-view [viewDate]="viewDate" [events]="convertToCalendarEvents(this.paginatedSchedules)"
           [dayStartHour]="dayStartHour" [dayEndHour]="dayEndHour">
         </mwl-calendar-week-view>
 
-        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-        <span>Page {{ currentPage }}</span>
-        <button (click)="nextPage()">Next</button>
+        <div style="margin-top: 20px;">
+          <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+          <span style="margin: 5px;">Page {{ currentPage }} out of {{this.totalPages()}}</span>
+          <button (click)="nextPage()">Next</button>
+        </div>
       </div>
     </div>
 

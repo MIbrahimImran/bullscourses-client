@@ -6,6 +6,7 @@ import { EventColor } from 'calendar-utils';
 
 interface Input {
   name: string;
+  color:string;
 }
 
 interface Course {
@@ -13,6 +14,7 @@ interface Course {
   name: string;
   days: string;
   time: string;
+  color:string;
 }
 
 @Component({
@@ -69,7 +71,7 @@ export class SchedulePageComponent {
   //  Days: MWFS - Time: 09:30am-10:45am09:30am-10:20am09:00am-10:15am  4 classes per week
   // TRF - Time: 12:30pm-01:45pm10:00am-10:50am 3 classes per week
 
-  convertToCalendarEvents(paginatedSchedules: Course[][]): CalendarEvent[] {
+  convertToCalendarEvents(paginatedSchedules: Course[][]): CalendarEvent[] {    //the libray
     const dayMap = new Map<string, number>([
       ['M', 1],
       ['T', 2],
@@ -121,8 +123,8 @@ export class SchedulePageComponent {
             const event: CalendarEvent = {
               start,
               end,
-              title: course.name,
-              color: { ...this.colors['red'] },
+              title: course.name + '\n' + course.crn,
+              color: { primary: course.color, secondary: course.color },
               meta: {
                 crn: course.crn,
                 days: course.days,
@@ -138,11 +140,11 @@ export class SchedulePageComponent {
     });
   }
 
-  inputList: Input[] = [{ name: 'ENC 1101' }];
-  schedules: Course[][] = [];
+  inputList: Input[] = [{ name: 'ENC 1101',color:"#00FF00"}];     //Input interface
+  schedules: Course[][] = [];   //course interface
 
   handleAddClick(): void {
-    this.inputList.push({ name: 'COP' });
+    this.inputList.push({ name: '',color:"white" });
   }
 
   handleRemoveClick(): void {
@@ -151,7 +153,7 @@ export class SchedulePageComponent {
 
   async generateSchedules(): Promise<void> {
     const courses = await Promise.all(
-      this.inputList.map(async ({ name }) => {
+      this.inputList.map(async ({ name,color }) => {
         const response = await axios.get(
           `http://localhost:3000/courses/${name}`
         );
@@ -163,6 +165,7 @@ export class SchedulePageComponent {
               name: course?.TITLE,
               days: course?.DAYS,
               time: course?.TIME.trim(),
+              color:color
             }))
             .filter((course: Course) => course.time.toUpperCase() !== 'TBA'),
         };
