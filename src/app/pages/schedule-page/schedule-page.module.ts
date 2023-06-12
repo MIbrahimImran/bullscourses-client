@@ -10,11 +10,17 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input'; // Add this line
 import { MatFormFieldModule } from '@angular/material/form-field'; // Add this line
 import { CommonModule } from '@angular/common';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 
 @NgModule({
   declarations: [SchedulePageComponent],
   imports: [
      CommonModule,
+     CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     MatToolbarModule,
     CourseModule,
     SharedModule,

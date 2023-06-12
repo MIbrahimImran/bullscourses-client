@@ -9,6 +9,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { JwtInterceptor } from './core/auth/jwt.interceptor';
 import { SchedulePageModule } from './pages/schedule-page/schedule-page.module';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/moment';
+import * as moment from 'moment';
+
+export function momentAdapterFactory() {
+  return adapterFactory(moment);
+};
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +36,7 @@ import { SchedulePageModule } from './pages/schedule-page/schedule-page.module';
       },
       cacheLocation: 'localstorage',
     }),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
   ],
   providers: [
     {

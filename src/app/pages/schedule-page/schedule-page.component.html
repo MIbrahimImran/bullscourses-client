@@ -3,10 +3,11 @@
     <div class="toolbar-content"
       style="display: flex; width: 350px; justify-content: space-between; text-decoration: none; align-items: center;">
       <div class="home-page__toolbar__logo">BullsCourses</div>
-      
+
     </div>
     <div class="home-page__toolbar__options">
-      <button class="create-schedules-btn" style="padding: 15px;"><a href="/about" style="text-decoration: none;">Create Schedules</a></button>
+      <button class="create-schedules-btn" style="padding: 15px;"><a href="/about" style="text-decoration: none;">Create
+          Schedules</a></button>
       <app-help-button class="home-page__toolbar__options__help"></app-help-button>
       <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
     </div>
@@ -37,6 +38,13 @@
             </div>
           </div>
         </div>
+        <mwl-calendar-week-view [viewDate]="viewDate" [events]="convertToCalendarEvents(this.paginatedSchedules)"
+          [dayStartHour]="dayStartHour" [dayEndHour]="dayEndHour">
+        </mwl-calendar-week-view>
+
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>Page {{ currentPage }}</span>
+        <button (click)="nextPage()">Next</button>
       </div>
     </div>
 

@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "src/styles.scss",
               "src/bullscourse.theme.scss"
             ],
@@ -100,6 +101,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/angular-calendar/css/angular-calendar.css",
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
