@@ -3,7 +3,6 @@
     <div class="toolbar-content"
       style="display: flex; width: 350px; justify-content: space-between; text-decoration: none; align-items: center;">
       <div class="home-page__toolbar__logo">BullsCourses</div>
-
     </div>
     <div class="home-page__toolbar__options">
       <button class="create-schedules-btn" style="padding: 15px;"><a href="/about" style="text-decoration: none;">Create
@@ -12,8 +11,6 @@
       <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
     </div>
   </mat-toolbar>
-
-
 
   <div class="main">
     <div class="left-component">
@@ -26,22 +23,19 @@
         </form>
       </div>
       <button (click)="handleAddClick()" style="margin-bottom: 20px;">Add more</button>
-
     </div>
     <div class="right-component">
-      <div class="right-component__scrollable">
+      <div style="margin-top: 20px; overflow-x: auto;">
         <mwl-calendar-week-view [viewDate]="viewDate" [events]="convertToCalendarEvents(this.paginatedSchedules)"
           [dayStartHour]="dayStartHour" [dayEndHour]="dayEndHour">
         </mwl-calendar-week-view>
+      </div>
 
-        <div style="margin-top: 20px;">
-          <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-          <span style="margin: 5px;">Page {{ currentPage }} out of {{this.totalPages()}}</span>
-          <button (click)="nextPage()">Next</button>
-        </div>
+      <div style="margin-top: 20px;">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span style="margin: 5px;">Page {{ currentPage }} out of {{ this.totalPages() }}</span>
+        <button (click)="nextPage()">Next</button>
       </div>
     </div>
-
   </div>
-
 </div>

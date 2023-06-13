@@ -84,6 +84,11 @@
   width: 100%;
   overflow: auto;
   padding: 100px;
+
+  @media (max-width: 767px) {
+      padding: 0;
+    }
+  
 }
 
 .right-component__scrollable {
