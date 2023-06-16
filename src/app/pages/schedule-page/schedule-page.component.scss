@@ -83,6 +83,7 @@
   flex: 4;
   width: 100%;
   overflow: auto;
+  overflow-x: auto;
   padding: 100px;
 
   @media (max-width: 767px) {
