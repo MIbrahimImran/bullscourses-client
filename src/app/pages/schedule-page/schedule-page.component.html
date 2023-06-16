@@ -25,7 +25,7 @@
       <button (click)="handleAddClick()" style="margin-bottom: 20px;">Add more</button>
     </div>
     <div class="right-component">
-      <div style="margin-top: 20px; overflow-x: auto;">
+      <div style="margin-top: 20px; overflow-x: auto; min-width: 700px;">
         <mwl-calendar-week-view [viewDate]="viewDate" [events]="convertToCalendarEvents(this.paginatedSchedules)"
           [dayStartHour]="dayStartHour" [dayEndHour]="dayEndHour">
         </mwl-calendar-week-view>
