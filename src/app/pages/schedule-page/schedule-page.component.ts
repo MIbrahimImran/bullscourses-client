@@ -163,9 +163,11 @@ export class SchedulePageComponent {
         return {
           name,
           times: response.data
-          .filter((course: any) => 
-          this.onlyOpenClasses ? course?.STATUS === 'Open' : course?.STATUS === 'Closed'
-        )
+         .filter(
+  (course: any) =>
+    course?.SUBJ_CRS.localeCompare(name, undefined, {sensitivity: 'base'}) === 0 &&
+    (this.onlyOpenClasses ? course?.STATUS === 'Open' : true)
+)
             .map((course: any) => ({
               crn: course?.CRN,
               name: course?.TITLE,
