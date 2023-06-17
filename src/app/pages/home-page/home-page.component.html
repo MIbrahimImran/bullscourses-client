@@ -1,12 +1,11 @@
 <div class="home-page">
   <mat-toolbar class="home-page__toolbar">
-    <div  style="display: flex; width: 350px; justify-content: space-between; text-decoration: none; align-items: center;">
-      <span class="home-page__toolbar__logo">BullsCourses</span>
-      
+    <div class="toolbar-content">
+      <span class="home-page__toolbar__logo">BullsCourses</span> 
     </div>
 
     <div class="home-page__toolbar__options">
-      <button style="padding: 15px;"><a href="/about" style="text-decoration: none;">Create Schedules</a></button>
+      <button class="create-schedules-btn"><a href="/about" class="create-schedules-link">Create Schedules</a></button>
       <app-help-button class="home-page__toolbar__options__help"></app-help-button>
       <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
     </div>
@@ -15,4 +14,4 @@
   <app-course-search-bar class="home-page__searchbar"></app-course-search-bar>
 </div>
 
-<app-course-grid></app-course-grid>
+<app-course-grid></app-course-grid> 
