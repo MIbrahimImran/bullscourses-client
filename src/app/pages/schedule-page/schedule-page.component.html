@@ -16,7 +16,11 @@
 
   <div class="main">
     <div class="left-component">
-      <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
+        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses" style="margin-top: 50px;">Only Open Classes</mat-checkbox>
+
+      </div>
       <div *ngFor="let input of inputList; let i = index" class="box" style=" margin-top: 30px; margin-bottom: 20px;">
         <form >
           <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" maxlength="9"/>

@@ -23,6 +23,8 @@ interface Course {
   styleUrls: ['./schedule-page.component.scss'],
 })
 export class SchedulePageComponent {
+  onlyOpenClasses = true;
+
   currentPage: number = 1;
   schedulesPerPage: number = 1;  
 
@@ -161,6 +163,9 @@ export class SchedulePageComponent {
         return {
           name,
           times: response.data
+          .filter((course: any) => 
+          this.onlyOpenClasses ? course?.STATUS === 'Open' : course?.STATUS === 'Closed'
+        )
             .map((course: any) => ({
               crn: course?.CRN,
               name: course?.TITLE,
