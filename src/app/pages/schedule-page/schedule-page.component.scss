@@ -19,7 +19,7 @@
     background-color:#023047;
     // overflow: auto;
     // padding: 10px;
-    min-width: 300px;
+    min-width: 400px;
     
 
   }
@@ -153,3 +153,8 @@
 }
 
 
+.white-label .mat-checkbox-label {
+  color: white;
+  background-color: white;
+  
+}

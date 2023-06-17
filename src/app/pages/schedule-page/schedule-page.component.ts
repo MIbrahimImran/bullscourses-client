@@ -23,6 +23,8 @@ interface Course {
   styleUrls: ['./schedule-page.component.scss'],
 })
 export class SchedulePageComponent {
+  onlyOpenClasses = true;
+
   currentPage: number = 1;
   schedulesPerPage: number = 1;  
 
@@ -157,9 +159,15 @@ export class SchedulePageComponent {
         const response = await axios.get(
           `http://localhost:3000/courses/${name}`
         );
+        console.log(response)
         return {
           name,
           times: response.data
+         .filter(
+  (course: any) =>
+    course?.SUBJ_CRS.localeCompare(name, undefined, {sensitivity: 'base'}) === 0 &&
+    (this.onlyOpenClasses ? course?.STATUS === 'Open' : true)
+)
             .map((course: any) => ({
               crn: course?.CRN,
               name: course?.TITLE,
@@ -226,27 +234,55 @@ export class SchedulePageComponent {
     return schedules;
   }
 
+  convertToMinutes(time: string): number {
+    let hours, minutes, period;
+  
+    // Check if time includes a space
+    if (time.includes(' ')) {
+      const [hourMin, periodWithSpace] = time.split(' ');
+      [hours, minutes] = hourMin.split(':').map(Number);
+      period = periodWithSpace;
+    } else {
+      const hourMin = time.slice(0, -2);
+      period = time.slice(-2);
+      [hours, minutes] = hourMin.split(':').map(Number);
+    }
+  
+    if (period.toLowerCase() === 'pm' && hours !== 12) {
+      hours += 12;
+    } else if (period.toLowerCase() === 'am' && hours === 12) {
+      hours = 0;
+    }
+  
+    return hours * 60 + minutes;
+  }
+  
+  
+  
   doesTimeOverlap(currentSchedule: Course[], newCourse: Course): boolean {
     return currentSchedule.some(({ days, time }) => {
-      const [currentStart, currentEnd] = time
-        .split('-')
-        .map((t) => parseInt(t.replace(':', ''), 10));
-      const [newStart, newEnd] = newCourse.time
-        .split('-')
-        .map((t) => parseInt(t.replace(':', ''), 10));
-
+      const [currentStartStr, currentEndStr] = time.split('-');
+      const currentStart = this.convertToMinutes(currentStartStr);
+      const currentEnd = this.convertToMinutes(currentEndStr);
+  
+      const [newStartStr, newEndStr] = newCourse.time.split('-');
+      const newStart = this.convertToMinutes(newStartStr);
+      const newEnd = this.convertToMinutes(newEndStr);
+  
       const overlappingDays = [...days].filter((day) =>
         newCourse.days.includes(day)
       );
-
+  
       if (overlappingDays.length === 0) {
         return false;
       }
-
+  
       return (
-        (newStart >= currentStart && newStart <= currentEnd) ||
-        (newEnd >= currentStart && newEnd <= currentEnd)
+        (newStart >= currentStart && newStart < currentEnd) ||
+        (newEnd > currentStart && newEnd <= currentEnd) ||
+        (newStart <= currentStart && newEnd >= currentEnd)
       );
     });
   }
+  
 }

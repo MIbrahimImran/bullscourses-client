@@ -39,7 +39,11 @@
 }
 
 .create-schedules-btn {
+    
+    border: none;
     background: #007BFF;
+    color: white;
+    border-radius: 4px;
     padding: 15px;
 }
 
@@ -67,3 +71,8 @@
     }
   }
   
+
+  .create-schedules-link {
+    text-decoration: none;
+    color: inherit;
+}

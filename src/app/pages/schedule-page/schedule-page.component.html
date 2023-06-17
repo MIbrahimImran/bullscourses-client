@@ -5,8 +5,10 @@
       <div class="home-page__toolbar__logo">BullsCourses</div>
     </div>
     <div class="home-page__toolbar__options">
-      <button class="create-schedules-btn" style="padding: 15px;"><a href="/about" style="text-decoration: none;">Create
-          Schedules</a></button>
+      <a href="/about" style="text-decoration: none; color: inherit;">
+        <button class="create-schedules-btn" style="padding: 15px;">Create Schedules</button>
+      </a>
+      
       <app-help-button class="home-page__toolbar__options__help"></app-help-button>
       <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
     </div>
@@ -14,10 +16,14 @@
 
   <div class="main">
     <div class="left-component">
-      <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
+        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses" style="margin-top: 50px;">Only Open Classes</mat-checkbox>
+
+      </div>
       <div *ngFor="let input of inputList; let i = index" class="box" style=" margin-top: 30px; margin-bottom: 20px;">
-        <form>
-          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" />
+        <form >
+          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" maxlength="9"/>
           <input type="color" name="color" [(ngModel)]="inputList[i].color" style="width: 50px;" />
           <button (click)="handleRemoveClick()" style="margin-bottom: 20px;">Remove</button>
         </form>
