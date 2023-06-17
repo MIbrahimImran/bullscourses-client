@@ -18,8 +18,8 @@
     <div class="left-component">
       <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
       <div *ngFor="let input of inputList; let i = index" class="box" style=" margin-top: 30px; margin-bottom: 20px;">
-        <form>
-          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" />
+        <form >
+          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" maxlength="9"/>
           <input type="color" name="color" [(ngModel)]="inputList[i].color" style="width: 50px;" />
           <button (click)="handleRemoveClick()" style="margin-bottom: 20px;">Remove</button>
         </form>
