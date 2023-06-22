@@ -16,7 +16,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color:#023047;
+    background-color:006747;
     // overflow: auto;
     // padding: 10px;
     min-width: 400px;
@@ -58,7 +58,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #023047;
+        background-color: #006747;
         color: #f1faee;
 
         &__logo {
@@ -84,7 +84,7 @@
   width: 100%;
   overflow: auto;
   overflow-x: auto;
-  padding: 100px;
+  padding-bottom:70px;
 
   @media (max-width: 767px) {
       padding: 0;
@@ -158,3 +158,40 @@
   background-color: white;
   
 }
+
+.schedule-container {
+  margin-top: 50px;
+}
+
+.course-details {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.course-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.course-info {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.course-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.info-label {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.info-value {
+  flex-grow: 1;
+}
+
