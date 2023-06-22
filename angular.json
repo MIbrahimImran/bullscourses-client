@@ -23,7 +23,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets","_redirects"],
+            "assets": ["src/favicon.ico", "src/assets","src/_redirects"],
             "styles": [
               "node_modules/angular-calendar/css/angular-calendar.css",
               "src/styles.scss",
@@ -88,7 +88,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets","_redirects"],
+            "assets": ["src/favicon.ico", "src/assets","src/_redirects"],
             "styles": [
               "node_modules/angular-calendar/css/angular-calendar.css",
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
