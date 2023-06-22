@@ -1,7 +1,7 @@
 <div class="home-page">
-  <mat-toolbar class="home-page__toolbar">
+  <mat-toolbar class="home-page__toolbar" style="height: 60px;">
     <div class="toolbar-content"
-      style="display: flex; width: 350px; justify-content: space-between; text-decoration: none; align-items: center;">
+      style="display: flex; width: 800px; justify-content: space-between; text-decoration: none; align-items: center;">
       <div class="home-page__toolbar__logo">Schedule4Bulls</div>
     </div>
   </mat-toolbar>
@@ -30,7 +30,7 @@
         </mwl-calendar-week-view>
       </div>
 
-      <div style="margin-top: 20px;">
+      <div style="margin-top: 20px; margin-bottom: 20px;">
         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
         <span style="margin: 5px;">Page {{ currentPage }} out of {{ this.totalPages() }}</span>
         <button (click)="nextPage()">Next</button>
