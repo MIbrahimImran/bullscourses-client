@@ -190,7 +190,7 @@ export class SchedulePageComponent {
     const courses = await Promise.all(
       this.inputList.map(async ({ name, color }) => {
         const response = await axios.get(
-          `https://server.bullscourses.com/courses/${name}`
+          `https://bullsmarketplace.com/api/course/${name}`
         );
         console.log(response);
         return {
