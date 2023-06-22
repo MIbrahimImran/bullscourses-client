@@ -2,15 +2,7 @@
   <mat-toolbar class="home-page__toolbar">
     <div class="toolbar-content"
       style="display: flex; width: 350px; justify-content: space-between; text-decoration: none; align-items: center;">
-      <div class="home-page__toolbar__logo">BullsCourses</div>
-    </div>
-    <div class="home-page__toolbar__options">
-      <a href="/about" style="text-decoration: none; color: inherit;">
-        <button class="create-schedules-btn" style="padding: 15px;">Create Schedules</button>
-      </a>
-      
-      <app-help-button class="home-page__toolbar__options__help"></app-help-button>
-      <app-user-menu class="home-page__toolbar__options__account"></app-user-menu>
+      <div class="home-page__toolbar__logo">Schedule4Bulls</div>
     </div>
   </mat-toolbar>
 
@@ -18,14 +10,15 @@
     <div class="left-component">
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
-        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses" style="margin-top: 50px;">Only Open Classes</mat-checkbox>
+        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses" style="margin-top: 50px;">Only Open
+          Classes</mat-checkbox>
 
       </div>
       <div *ngFor="let input of inputList; let i = index" class="box" style=" margin-top: 30px; margin-bottom: 20px;">
-        <form >
-          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" maxlength="9"/>
+        <form>
+          <input matInput name="name" placeholder="Enter Course" [(ngModel)]="inputList[i].name" maxlength="9" />
           <input type="color" name="color" [(ngModel)]="inputList[i].color" style="width: 50px;" />
-          <button (click)="handleRemoveClick()" style="margin-bottom: 20px;">Remove</button>
+          <button (click)="handleRemoveClick(i)" style="margin-bottom: 20px;">Remove</button>
         </form>
       </div>
       <button (click)="handleAddClick()" style="margin-bottom: 20px;">Add more</button>
@@ -41,6 +34,32 @@
         <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
         <span style="margin: 5px;">Page {{ currentPage }} out of {{ this.totalPages() }}</span>
         <button (click)="nextPage()">Next</button>
+      </div>
+
+      <div class="schedule-container" *ngFor="let item of paginatedSchedules">
+        <div class="course-details" *ngFor="let i of item">
+          <div class="course-name">{{ i.name }}</div>
+          <div class="course-info">
+            <div class="course-info-item">
+              <span class="info-label">CRN:</span>
+              <span class="info-value">{{ i.crn }}</span>
+            </div>
+            <div class="course-info-item">
+              <span class="info-label">Time:</span>
+              <span class="info-value">{{ i.time }}</span>
+            </div>
+            <div class="course-info-item">
+              <span class="info-label">Days:</span>
+              <span class="info-value">{{ i.days }}</span>
+            </div>
+            <div class="course-info-item">
+              <span class="info-label">Professor:</span>
+              <span class="info-value">{{ i.prof }}</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="separator"></div>
       </div>
     </div>
   </div>
