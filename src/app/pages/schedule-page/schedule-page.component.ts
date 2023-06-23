@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import axios from 'axios';
 import * as moment from 'moment';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
-import { EventColor } from 'calendar-utils';
 
 interface Input {
   name: string;
@@ -220,6 +219,8 @@ export class SchedulePageComponent {
         };
       })
     );
+
+
 
     const validcourses = courses.filter((e) => e.times.length !== 0);
     const generatedSchedules = this.generateSchedulesBacktracking(validcourses);

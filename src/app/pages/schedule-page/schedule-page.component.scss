@@ -20,8 +20,7 @@
     // overflow: auto;
     // padding: 10px;
     min-width: 400px;
-    
-
+    overflow-y: scroll;
   }
   
   .box {
@@ -84,7 +83,8 @@
   width: 100%;
   overflow: auto;
   overflow-x: auto;
-  padding-bottom:70px;
+  padding-bottom: 37px;
+  padding-right: 10px;
 
   @media (max-width: 767px) {
       padding: 0;
@@ -161,13 +161,14 @@
 
 .schedule-container {
   margin-top: 50px;
+  margin-left: 5px;
 }
 
 .course-details {
   padding: 10px;
   background-color: #f2f2f2;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .course-name {

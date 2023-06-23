@@ -1,5 +1,5 @@
 <div class="home-page">
-  <mat-toolbar class="home-page__toolbar" style="height: 60px;">
+  <mat-toolbar class="home-page__toolbar" style="height: 55px;">
     <div class="toolbar-content"
       style="display: flex; width: 800px; justify-content: space-between; text-decoration: none; align-items: center;">
       <div class="home-page__toolbar__logo">Schedule4Bulls</div>
@@ -8,9 +8,11 @@
 
   <div class="main">
     <div class="left-component">
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <button (click)="generateSchedules()" style="margin-top: 50px;">Generate Schedules</button>
-        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses" style="margin-top: 50px;">Only Open
+      <div style="display: flex;
+    justify-content: space-around;
+    align-items: center; margin-top: 20px;">
+        <button (click)="generateSchedules()">Generate Schedules</button>
+        <mat-checkbox class="white-label" [(ngModel)]="onlyOpenClasses">Only Open
           Classes</mat-checkbox>
 
       </div>
@@ -21,20 +23,24 @@
           <button (click)="handleRemoveClick(i)" style="margin-bottom: 20px;">Remove</button>
         </form>
       </div>
-      <button (click)="handleAddClick()" style="margin-bottom: 20px;">Add more</button>
+      <button (click)="handleAddClick()" style="margin-bottom: 64px;">Add more</button>
     </div>
     <div class="right-component">
-      <div style="margin-top: 20px; overflow-x: auto; min-width: 700px;">
+      <div style="margin-top: 20px; margin-bottom: 20px;  display: flex; align-items: center; justify-content: center;">
+        <div class="div">
+          <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+          <span style="margin: 5px;">Page {{ currentPage }} out of {{ this.totalPages() }}</span>
+          <button (click)="nextPage()">Next</button>
+        </div>
+
+      </div>
+      <div style="margin-top: 20px; overflow-x: auto; min-width: 700px; margin-bottom: 10px;">
         <mwl-calendar-week-view [viewDate]="viewDate" [events]="convertToCalendarEvents(this.paginatedSchedules)"
           [dayStartHour]="dayStartHour" [dayEndHour]="dayEndHour">
         </mwl-calendar-week-view>
       </div>
 
-      <div style="margin-top: 20px; margin-bottom: 20px;">
-        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-        <span style="margin: 5px;">Page {{ currentPage }} out of {{ this.totalPages() }}</span>
-        <button (click)="nextPage()">Next</button>
-      </div>
+
 
       <div class="schedule-container" *ngFor="let item of paginatedSchedules">
         <div class="course-details" *ngFor="let i of item">
