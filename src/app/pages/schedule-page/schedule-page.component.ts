@@ -5,7 +5,7 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 interface Input {
   name: string;
-  color:string;
+  color: string;
 }
 
 interface Course {
@@ -13,9 +13,9 @@ interface Course {
   name: string;
   days: string;
   time: string;
-  color:string;
-  campus:string;
-  prof:string;
+  color: string;
+  campus: string;
+  prof: string;
 }
 
 @Component({
@@ -220,7 +220,12 @@ export class SchedulePageComponent {
       })
     );
 
-
+    //api call for analytics(update counter)
+    try {
+      await axios.get(`https://bullsmarketplace.com/api/coursegenerate`);
+    } catch (err) {
+      console.log(err);
+    }
 
     const validcourses = courses.filter((e) => e.times.length !== 0);
     const generatedSchedules = this.generateSchedulesBacktracking(validcourses);
@@ -297,27 +302,25 @@ export class SchedulePageComponent {
 
     return hours * 60 + minutes;
   }
-  
-  
-  
+
   doesTimeOverlap(currentSchedule: Course[], newCourse: Course): boolean {
     return currentSchedule.some(({ days, time }) => {
       const [currentStartStr, currentEndStr] = time.split('-');
       const currentStart = this.convertToMinutes(currentStartStr);
       const currentEnd = this.convertToMinutes(currentEndStr);
-  
+
       const [newStartStr, newEndStr] = newCourse.time.split('-');
       const newStart = this.convertToMinutes(newStartStr);
       const newEnd = this.convertToMinutes(newEndStr);
-  
+
       const overlappingDays = [...days].filter((day) =>
         newCourse.days.includes(day)
       );
-  
+
       if (overlappingDays.length === 0) {
         return false;
       }
-  
+
       return (
         (newStart >= currentStart && newStart < currentEnd) ||
         (newEnd > currentStart && newEnd <= currentEnd) ||
@@ -325,5 +328,4 @@ export class SchedulePageComponent {
       );
     });
   }
-  
 }
