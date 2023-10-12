@@ -14,11 +14,6 @@
         &__options {
             display: flex;
             align-items: center;
-
-            &__account {
-                display: flex;
-                align-items: center;
-            }
         }
     }
 
@@ -26,24 +21,5 @@
         display: flex;
         justify-content: space-between;
         margin: 16px 8px 0 8px;
-
-        &__stats {
-            display: flex;
-        }
-
-        @media only screen and (max-width: 730px) {
-            &__stats {
-                display: none;
-            }
-        }
     }
-}
-
-ag-grid-angular {
-    padding: 0 8px 0 8px;
-}
-
-.ag-theme-alpine {
-    --ag-header-foreground-color : #003049;
-    --ag-font-family: 'Roboto', sans-serif;
 }

@@ -1,0 +1,17 @@
+<button *ngIf="!(userAuthenticated$ | async)" mat-flat-button color="primary" (click)="login()">
+    <mat-icon>login</mat-icon> Log in
+</button>
+
+<button *ngIf="(userAuthenticated$ | async)" mat-button [matMenuTriggerFor]="userAccountMenu">
+    <div class="user-info">
+        <img class="user-info__picture" src="{{ userPictureURL }}" alt="User Profile Picture">
+        <span class="user-info__name">{{ userName }}</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+    </div>
+</button> 
+
+<mat-menu #userAccountMenu="matMenu">
+    <button mat-menu-item color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon> Logout
+    </button> 
+</mat-menu>
