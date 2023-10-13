@@ -18,6 +18,8 @@ export class CourseGridComponent {
   public rowData: Course[] = [];
   public columnDefs: ColDef[] = this.getColumnDefs();
   public defaultColDef: ColDef = this.getDefaultColDef();
+  public enableRangeSelection: boolean = true;
+  public enableCellTextSelection: boolean = true;
 
   constructor(private courseService: CourseService) {
     this.courseService.courses$
